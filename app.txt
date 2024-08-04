@@ -1,0 +1,44 @@
+only 3 stuff involved 
+bodyparser!
+yaad krle ki its imp 
+get request!
+post request!
+
+
+lets see the app request
+app.post("/person", async (req, res) => {
+  try {
+    const data = req.body;
+    one can only use this if youve use parse function
+    const newPerson = new person(data);
+mongoose model saving
+now save new person to db
+    const response = await newPerson.save();
+    console.log("data saved");
+    res.status(200).json(response);
+  } catch (err) {
+    console.log(err);
+    res.status(500).json({ error: "internal server error" });
+  }
+});
+
+
+app.post("/person", async (req, res) => {
+  try {
+    const data = req.body;
+    const newPerson = new person(data);
+    const response = await newPerson.save();
+    console.log("data saved");
+    res.status(200).json(response);
+  } catch (err) {
+    console.log(err);
+    res.status(500).json({ error: "internal server error" });
+  }
+});
+
+
+nodemon 
+ke liye download 
+
+npm install -g nodemon
+npx nodemon app.js

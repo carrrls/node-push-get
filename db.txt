@@ -1,0 +1,19 @@
+this is the file that connects your person and app ka file
+so db.js will connect you express(app.js) and your mongoose(models)
+
+==================
+REQ NAME CONNECT DB EVENTs EXPORT
+const mongoose = require("mongoose");
+const mongoUrl = "mongodb://localhost:27017/hotels";
+mongoose.connect(mongoUrl, {});
+const db = mongoose.connection;
+db.on("connected", () => {
+  console.log("connected");
+});
+db.on("error", (err) => {
+  console.log("theres an error", err);
+});
+db.on("disconnected", () => {
+  console.log("disconnected");z
+});
+module.exports = db;
